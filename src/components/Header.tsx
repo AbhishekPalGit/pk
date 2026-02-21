@@ -26,19 +26,19 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
-                    ? 'bg-[#0D0D0D]/95 backdrop-blur-md shadow-lg shadow-black/30 py-3'
-                    : 'bg-transparent py-5'
+                ? 'bg-white/95 backdrop-blur-md shadow-md shadow-green-100 py-3'
+                : 'bg-white/80 backdrop-blur-sm py-4'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="#home" className="flex items-center gap-3 group">
-                    <div className="w-10 h-10 rounded-full border-2 border-[#C9A96E] flex items-center justify-center bg-[#C9A96E]/10 group-hover:bg-[#C9A96E]/20 transition-colors">
-                        <Globe className="w-5 h-5 text-[#C9A96E]" />
+                    <div className="w-10 h-10 rounded-full border-2 border-[#54c625] flex items-center justify-center bg-[#54c625]/10 group-hover:bg-[#54c625]/20 transition-colors">
+                        <Globe className="w-5 h-5 text-[#54c625]" />
                     </div>
                     <div className="leading-tight">
-                        <div className="text-[#C9A96E] font-bold text-sm tracking-widest uppercase font-serif">PK Global</div>
-                        <div className="text-white/70 text-xs tracking-wider">Overseas Pvt. Ltd.</div>
+                        <div className="text-[#54c625] font-bold text-sm tracking-widest uppercase font-serif">PK Global</div>
+                        <div className="text-gray-500 text-xs tracking-wider">Overseas Pvt. Ltd.</div>
                     </div>
                 </Link>
 
@@ -49,28 +49,28 @@ export default function Header() {
                             key={link.href}
                             href={link.href}
                             onClick={() => setActiveLink(link.href)}
-                            className={`text-sm font-medium tracking-wide transition-colors duration-200 relative group ${activeLink === link.href ? 'text-[#C9A96E]' : 'text-white/80 hover:text-[#C9A96E]'
+                            className={`text-sm font-medium tracking-wide transition-colors duration-200 relative group ${activeLink === link.href ? 'text-[#54c625]' : 'text-gray-600 hover:text-[#54c625]'
                                 }`}
                         >
                             {link.label}
-                            <span className="absolute -bottom-1 left-0 h-px bg-[#C9A96E] transition-all duration-300 w-0 group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 h-0.5 bg-[#54c625] transition-all duration-300 w-0 group-hover:w-full" />
                         </Link>
                     ))}
                 </nav>
 
                 {/* CTA Button */}
                 <div className="hidden md:block">
-                    <Link
+                    <a
                         href="#contact"
-                        className="btn-gold px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide uppercase"
+                        className="btn-green px-5 py-2.5 rounded-full text-sm font-semibold tracking-wide"
                     >
                         Get a Quote
-                    </Link>
+                    </a>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-white p-2"
+                    className="md:hidden text-gray-700 p-2 hover:text-[#54c625] transition-colors"
                     onClick={() => setMobileOpen(!mobileOpen)}
                     aria-label="Toggle menu"
                 >
@@ -83,24 +83,24 @@ export default function Header() {
                 className={`md:hidden transition-all duration-400 overflow-hidden ${mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                     }`}
             >
-                <div className="bg-[#141414] border-t border-[#C9A96E]/20 px-4 py-4 flex flex-col gap-4">
+                <div className="bg-white border-t border-[#54c625]/20 px-4 py-4 flex flex-col gap-4 shadow-lg">
                     {navLinks.map((link) => (
                         <Link
                             key={link.href}
                             href={link.href}
                             onClick={() => { setActiveLink(link.href); setMobileOpen(false); }}
-                            className="text-white/80 hover:text-[#C9A96E] text-sm font-medium tracking-wide transition-colors py-1"
+                            className="text-gray-600 hover:text-[#54c625] text-sm font-medium tracking-wide transition-colors py-1 border-b border-gray-100"
                         >
                             {link.label}
                         </Link>
                     ))}
-                    <Link
+                    <a
                         href="#contact"
                         onClick={() => setMobileOpen(false)}
-                        className="btn-gold px-5 py-2.5 rounded-sm text-sm font-semibold tracking-wide uppercase text-center mt-2"
+                        className="btn-green px-5 py-2.5 rounded-full text-sm font-semibold text-center mt-2"
                     >
                         Get a Quote
-                    </Link>
+                    </a>
                 </div>
             </div>
         </header>

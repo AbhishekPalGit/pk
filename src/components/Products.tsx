@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
-import Link from 'next/link';
 
 const products = [
     {
@@ -96,89 +95,80 @@ export default function Products() {
     const [hovered, setHovered] = useState<string | null>(null);
 
     return (
-        <section id="products" className="section-padding relative bg-[#0D0D0D]">
-            {/* Subtle background pattern */}
-            <div
-                className="absolute inset-0 opacity-3"
-                style={{
-                    backgroundImage: `radial-gradient(circle at 2px 2px, #C9A96E 1px, transparent 0)`,
-                    backgroundSize: '40px 40px',
-                    opacity: 0.03,
-                }}
-            />
+        <section id="products" className="section-padding relative bg-[#F4FAF0]">
+            {/* Top wave */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#54c625] to-transparent opacity-40" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
                 {/* Section Header */}
-                <div className="text-center mb-16">
-                    <p className="text-[#C9A96E] text-xs font-semibold tracking-widest uppercase mb-3">What We Export</p>
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-                        Our Product <span className="gold-text">Categories</span>
+                <div className="text-center mb-14">
+                    <span className="inline-block bg-[#54c625]/15 text-[#3A9A18] text-xs font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full mb-4">What We Export</span>
+                    <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-[#1A3A08] mb-4">
+                        Our Product <span className="green-text">Categories</span>
                     </h2>
                     <div className="ornament max-w-xs mx-auto mt-4">
-                        <span className="text-[#C9A96E] text-lg">✦</span>
+                        <span className="text-[#54c625] text-lg">✦</span>
                     </div>
-                    <p className="text-white/50 text-base max-w-xl mx-auto mt-4">
-                        From the artisan lanes of Rajasthan to your doorstep — 12 categories of India's finest exports.
+                    <p className="text-gray-500 text-base max-w-xl mx-auto mt-4">
+                        From the artisan lanes of Rajasthan to your doorstep — 12 categories of India&apos;s finest exports.
                     </p>
                 </div>
 
                 {/* Product Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                     {products.map((product) => (
                         <div
                             key={product.id}
-                            className="product-card group relative bg-[#141414] border border-[#C9A96E]/10 rounded-sm overflow-hidden cursor-pointer hover:border-[#C9A96E]/40"
+                            className="product-card group relative bg-white border border-[#54c625]/15 rounded-2xl overflow-hidden cursor-pointer hover:border-[#54c625]/50 shadow-sm hover:shadow-lg hover:shadow-[#54c625]/10"
                             onMouseEnter={() => setHovered(product.id)}
                             onMouseLeave={() => setHovered(null)}
                         >
                             {/* Image */}
-                            <div className="relative h-52 overflow-hidden">
+                            <div className="relative h-48 overflow-hidden">
                                 <Image
                                     src={product.image}
                                     alt={product.title}
                                     fill
                                     className="object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
-                                {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent" />
                                 {/* Badge */}
-                                <div className="absolute top-3 right-3 bg-[#C9A96E] text-[#0D0D0D] text-xs font-bold px-2 py-1 rounded-sm tracking-wide">
+                                <div className="absolute top-3 right-3 bg-[#54c625] text-white text-xs font-bold px-2.5 py-1 rounded-full tracking-wide shadow-md">
                                     {product.badge}
                                 </div>
                             </div>
 
                             {/* Content */}
-                            <div className="p-5">
-                                <h3 className="font-serif text-lg font-semibold text-white mb-2 group-hover:text-[#C9A96E] transition-colors">
+                            <div className="p-4">
+                                <h3 className="font-serif text-base font-bold text-[#1A3A08] mb-1.5 group-hover:text-[#54c625] transition-colors">
                                     {product.title}
                                 </h3>
-                                <p className="text-white/50 text-sm leading-relaxed line-clamp-3">
+                                <p className="text-gray-500 text-xs leading-relaxed line-clamp-3">
                                     {product.description}
                                 </p>
 
                                 {/* Inquiry Link */}
-                                <div className="mt-4 flex items-center gap-1 text-[#C9A96E] text-sm font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                                    <Link href="#contact" className="flex items-center gap-1 hover:gap-2 transition-all">
-                                        Inquire Now <ArrowRight className="w-4 h-4" />
-                                    </Link>
+                                <div className="mt-3 flex items-center gap-1 text-[#54c625] text-xs font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                                    <a href="#contact" className="flex items-center gap-1 hover:gap-2 transition-all">
+                                        Inquire Now <ArrowRight className="w-3.5 h-3.5" />
+                                    </a>
                                 </div>
                             </div>
 
-                            {/* Bottom gold bar on hover */}
-                            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                            {/* Bottom green bar */}
+                            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#54c625] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
                         </div>
                     ))}
                 </div>
 
                 {/* Bottom CTA */}
                 <div className="text-center mt-12">
-                    <Link
+                    <a
                         href="#contact"
-                        className="btn-gold px-8 py-4 rounded-sm text-sm font-semibold tracking-widest uppercase inline-flex items-center gap-2"
+                        className="btn-green px-8 py-4 rounded-full text-sm font-semibold tracking-wide inline-flex items-center gap-2"
                     >
                         Request a Custom Quote
                         <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </a>
                 </div>
             </div>
         </section>
