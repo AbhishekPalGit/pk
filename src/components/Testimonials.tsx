@@ -84,7 +84,7 @@ export default function Testimonials() {
                 {/* Header */}
                 <div className="text-center mb-14">
                     <p className="text-[#C9A96E] text-xs font-semibold tracking-widest uppercase mb-3">Client Stories</p>
-                    <h2 className="font-serif text-4xl md:text-5xl font-bold text-white">
+                    <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white">
                         Trusted <span className="gold-text">Worldwide</span>
                     </h2>
                     <div className="ornament max-w-xs mx-auto mt-4">
@@ -94,7 +94,7 @@ export default function Testimonials() {
 
                 {/* Main testimonial card */}
                 <div
-                    className={`bg-[#141414] border border-[#C9A96E]/20 rounded-sm p-8 md:p-12 text-center transition-all duration-300 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+                    className={`bg-[#141414] border border-[#C9A96E]/20 rounded-sm p-5 sm:p-8 md:p-12 text-center transition-all duration-300 ${isAnimating ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
                         }`}
                 >
                     {/* Quote icon */}
@@ -112,8 +112,8 @@ export default function Testimonials() {
                     </div>
 
                     {/* Quote text */}
-                    <blockquote className="text-white/80 text-lg md:text-xl leading-relaxed font-serif italic mb-8 max-w-3xl mx-auto">
-                        "{t.text}"
+                    <blockquote className="text-white/80 text-base sm:text-lg md:text-xl leading-relaxed font-serif italic mb-6 sm:mb-8 max-w-3xl mx-auto">
+                        &quot;{t.text}&quot;
                     </blockquote>
 
                     {/* Client info */}

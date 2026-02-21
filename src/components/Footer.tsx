@@ -35,7 +35,7 @@ export default function Footer() {
                             </div>
                         </div>
                         <p className="text-white/40 text-sm leading-relaxed mb-6">
-                            India's premier export house — bringing the finest Indian products to global markets since 2009.
+                            India&apos;s premier export house — bringing the finest Indian products to global markets since 2009.
                         </p>
 
                         {/* Social icons */}
@@ -122,15 +122,14 @@ export default function Footer() {
                 </div>
             </div>
 
-            {/* Bottom bar */}
             <div className="border-t border-[#C9A96E]/10 py-5">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-white/30 text-xs text-center sm:text-left">
-                        © 2025 PK Global Overseas Pvt. Ltd. All rights reserved.
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+                    <p className="text-white/30 text-xs text-center">
+                        &copy; 2025 PK Global Overseas Pvt. Ltd. All rights reserved.
                     </p>
-                    <div className="flex gap-6">
+                    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
                         {['Privacy Policy', 'Terms of Service', 'Sitemap'].map((item) => (
-                            <a key={item} href="#" className="text-white/30 text-xs hover:text-[#C9A96E] transition-colors">
+                            <a key={item} href="#" className="text-white/30 text-xs hover:text-[#C9A96E] transition-colors whitespace-nowrap">
                                 {item}
                             </a>
                         ))}

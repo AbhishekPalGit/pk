@@ -42,7 +42,6 @@ export default function LeadForm() {
         if (Object.keys(errs).length) { setErrors(errs); return; }
         setErrors({});
         setStatus('loading');
-        // Simulate API call
         setTimeout(() => {
             setStatus('success');
             setForm(initial);
@@ -64,28 +63,28 @@ export default function LeadForm() {
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     {/* Left: Copy */}
                     <div className="lg:sticky lg:top-24">
                         <p className="text-[#C9A96E] text-xs font-semibold tracking-widest uppercase mb-3">Start a Conversation</p>
-                        <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6">
+                        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
                             Request a <br /><span className="gold-text">Free Quote</span>
                         </h2>
-                        <div className="w-16 h-0.5 bg-gradient-to-r from-[#C9A96E] to-transparent mb-6" />
-                        <p className="text-white/60 text-base leading-relaxed mb-8">
-                            Whether you're looking to import a single category or build a comprehensive Indian product line,
-                            we're here to help. Fill out the form and our team will get back to you within 24 hours.
+                        <div className="w-16 h-0.5 bg-gradient-to-r from-[#C9A96E] to-transparent mb-5" />
+                        <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-6">
+                            Whether you&apos;re looking to import a single category or build a comprehensive Indian product line,
+                            we&apos;re here to help. Fill out the form and our team will get back to you within 24 hours.
                         </p>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3">
                             {[
                                 { icon: '⚡', title: '24-Hour Response', desc: 'Our team responds within one business day' },
                                 { icon: '📦', title: 'Sample Request', desc: 'Ask for product samples before placing bulk orders' },
                                 { icon: '🚢', title: 'Global Shipping', desc: 'We ship to 25+ countries worldwide' },
                                 { icon: '🤝', title: 'Custom Orders', desc: 'Tailored packaging and private label available' },
                             ].map(({ icon, title, desc }) => (
-                                <div key={title} className="flex items-start gap-4 p-4 bg-[#1C1C1C] border border-[#C9A96E]/15 rounded-sm hover:border-[#C9A96E]/30 transition-colors">
-                                    <span className="text-2xl">{icon}</span>
+                                <div key={title} className="flex items-start gap-4 p-3 sm:p-4 bg-[#1C1C1C] border border-[#C9A96E]/15 rounded-sm hover:border-[#C9A96E]/30 transition-colors">
+                                    <span className="text-xl sm:text-2xl flex-shrink-0">{icon}</span>
                                     <div>
                                         <div className="text-white font-semibold text-sm">{title}</div>
                                         <div className="text-white/50 text-xs mt-0.5">{desc}</div>
@@ -96,7 +95,7 @@ export default function LeadForm() {
                     </div>
 
                     {/* Right: Form */}
-                    <div className="bg-[#1C1C1C] border border-[#C9A96E]/20 rounded-sm p-8">
+                    <div className="bg-[#1C1C1C] border border-[#C9A96E]/20 rounded-sm p-5 sm:p-8">
                         {status === 'success' ? (
                             <div className="flex flex-col items-center text-center py-12">
                                 <CheckCircle2 className="w-16 h-16 text-[#C9A96E] mb-4" />
@@ -112,8 +111,9 @@ export default function LeadForm() {
                                 </button>
                             </div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-                                <div className="grid grid-cols-2 gap-4">
+                            <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                                {/* Name + Email — stack on mobile */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-white/60 text-xs font-medium mb-1.5 uppercase tracking-wide">Full Name *</label>
                                         <input type="text" placeholder="John Smith" value={form.name} onChange={handle('name')} className={inputClass('name')} />
@@ -126,7 +126,8 @@ export default function LeadForm() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                {/* Phone + Company — stack on mobile */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-white/60 text-xs font-medium mb-1.5 uppercase tracking-wide">Phone *</label>
                                         <input type="tel" placeholder="+1 234 567 8900" value={form.phone} onChange={handle('phone')} className={inputClass('phone')} />
@@ -138,7 +139,8 @@ export default function LeadForm() {
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-4">
+                                {/* Country + Category — stack on mobile */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label className="block text-white/60 text-xs font-medium mb-1.5 uppercase tracking-wide">Country</label>
                                         <input type="text" placeholder="USA, UAE, UK..." value={form.country} onChange={handle('country')} className={inputClass('country')} />
@@ -156,7 +158,7 @@ export default function LeadForm() {
                                 <div>
                                     <label className="block text-white/60 text-xs font-medium mb-1.5 uppercase tracking-wide">Message *</label>
                                     <textarea
-                                        rows={5}
+                                        rows={4}
                                         placeholder="Tell us about your requirements — quantity, specifications, delivery location..."
                                         value={form.message}
                                         onChange={handle('message')}
@@ -168,7 +170,7 @@ export default function LeadForm() {
                                 <button
                                     type="submit"
                                     disabled={status === 'loading'}
-                                    className="btn-gold w-full py-4 rounded-sm text-sm font-semibold tracking-widest uppercase flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                                    className="btn-gold w-full py-3.5 rounded-sm text-sm font-semibold tracking-widest uppercase flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                                 >
                                     {status === 'loading' ? (
                                         <><Loader2 className="w-4 h-4 animate-spin" /> Sending...</>
